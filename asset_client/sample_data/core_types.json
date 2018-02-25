@@ -26,7 +26,15 @@
         {
           "name": "shock",
           "dataType": 2
-        }
+        },
+        {
+          "name": "volume",
+          "dataType": 3
+        },
+        {
+          "name": "status",
+          "dataType": 1
+        }		
     ]
   }
 ]

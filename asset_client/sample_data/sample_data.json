@@ -20,6 +20,11 @@
             "intValue": 134089
           },
           {
+            "name": "volume",
+            "dataType": 3,
+            "floatValue": 157
+          },
+          {
             "name": "location",
             "dataType": 4,
             "locationValue": {
@@ -59,6 +64,11 @@
             "intValue": 174540000000
           },
           {
+            "name": "volume",
+            "dataType": 3,
+            "floatValue": 1548623.125
+          },		  
+          {
             "name": "location",
             "dataType": 4,
             "locationValue": {
@@ -89,6 +99,11 @@
             "dataType": 1,
             "stringValue": "Kona"
           },
+          {
+            "name": "volume",
+            "dataType": 3,
+            "floatValue": 0.156
+          },		  
           {
             "name": "weight",
             "dataType": 2,

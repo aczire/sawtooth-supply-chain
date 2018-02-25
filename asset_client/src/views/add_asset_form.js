@@ -31,7 +31,9 @@ const authorizableProperties = [
   ['weight', 'Weight'],
   ['location', 'Location'],
   ['temperature', 'Temperature'],
-  ['shock', 'Shock']
+  ['shock', 'Shock'],
+  ['volume', 'Volume'],
+  ['status', 'Status']  
 ]
 
 /**
@@ -77,6 +79,15 @@ const AddAssetForm = {
           min: 0,
           required: false
         })),
+		
+        forms.group('Volume', forms.field(setter('volume'), {
+          type: 'number',
+          step: 'any',
+          min: 0,
+          required: false
+        })),	
+
+		forms.textInput(setter('status'), 'Status', false),		
 
         layout.row([
           forms.group('Latitude', forms.field(setter('latitude'), {
@@ -180,6 +191,22 @@ const _handleSubmit = (signingKey, state) => {
       dataType: payloads.createRecord.enum.INT
     })
   }
+  
+  if (state.volume) {
+    properties.push({
+      name: 'volume',
+      floatValue: parsing.toFloat(state.weight),
+      dataType: payloads.createRecord.enum.FLOAT
+    })
+  }  
+  
+  if (state.status) {
+    properties.push({
+      name: 'status',
+      stringValue: (state.status),
+      dataType: payloads.createRecord.enum.STRING
+    })
+  }   
 
   if (state.latitude && state.longitude) {
     properties.push({

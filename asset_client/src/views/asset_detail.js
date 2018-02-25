@@ -39,7 +39,9 @@ const authorizableProperties = [
   ['weight', 'Weight'],
   ['location', 'Location'],
   ['temperature', 'Temperature'],
-  ['shock', 'Shock']
+  ['shock', 'Shock'],
+  ['volume', 'Volume'],
+  ['status', 'Status']
 ]
 
 const _labelProperty = (label, value) => [
@@ -409,7 +411,7 @@ const AssetDetail = {
     _loadData(vnode.attrs.recordId, vnode.state)
     vnode.state.refreshId = setInterval(() => {
       _loadData(vnode.attrs.recordId, vnode.state)
-    }, 2000)
+    }, 1000*60*5)
   },
 
   onbeforeremove (vnode) {
@@ -476,6 +478,40 @@ const AssetDetail = {
               onsuccess: () => _loadData(vnode.attrs.recordId, vnode.state)
             })
            : null)),
+		   
+        _row(
+          _labelProperty(
+            'Volume',
+            _propLink(record, 'volume', parsing.toFloat(getPropertyValue(record, 'volume')))),
+          (isReporter(record, 'volume', publicKey) && !record.final
+          ? m(ReportValue,
+            {
+              name: 'volume',
+              label: 'Volume',
+              record,
+              typeField: 'floatValue',
+              type: payloads.updateProperties.enum.FLOAT,
+              xform: (x) => parsing.toInt(x),
+              onsuccess: () => _loadData(vnode.attrs.recordId, vnode.state)
+            })
+           : null)),		   
+		   
+        _row(
+          _labelProperty(
+            'Status',
+            _propLink(record, 'status', getPropertyValue(record, 'status'))),
+          (isReporter(record, 'status', publicKey) && !record.final
+          ? m(ReportValue,
+            {
+              name: 'status',
+              label: 'Status',
+              record,
+              typeField: 'stringValue',
+              type: payloads.updateProperties.enum.STRING,
+              xform: (x) => (x),
+              onsuccess: () => _loadData(vnode.attrs.recordId, vnode.state)
+            })
+           : null)),			   
 
         _row(
           _labelProperty(

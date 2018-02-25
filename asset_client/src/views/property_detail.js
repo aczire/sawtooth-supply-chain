@@ -145,7 +145,7 @@ const PropertyDetailPage = {
           })
           vnode.state.property = property
         })
-        .then(() => { vnode.state.refreshId = setTimeout(refresh, 2000) })
+        .then(() => { vnode.state.refreshId = setTimeout(refresh, 1000*60*5) })
     }
 
     refresh()

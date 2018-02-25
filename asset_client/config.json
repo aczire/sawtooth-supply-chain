@@ -1,0 +1,15 @@
+{
+
+  "JWT_SECRET": "6234f892724f5cf4691df863796a29a556ff52129ffad0a765d6a1a328d94206fb",
+  "PRIVATE_KEY": "d6ed00e5f65af70a2ac6a1a328d94206fb80b3223be85b98e984f7f863796a29",
+  "MAPS_API_KEY": "AIzaSyCckF1B_QRARfwJU8ymovZOGIDn9-n_g1Q",
+
+  "PORT": 3000,
+  "RETRY_WAIT": 5000,
+  "VALIDATOR_URL": "tcp://localhost:4004",
+
+  "DB_HOST": "localhost",
+  "DB_PORT": 28015,
+  "DB_NAME": "supply_chain"
+
+}
